@@ -18,9 +18,11 @@
         methods: {
             handleIncrease: function() {
                 this.counter++;
+                this.$root.Bus.$emit('counterChange',this.counter);
             },
             handleDecrease: function() {
                 this.counter--;
+                this.$root.Bus.$emit('counterChange',this.counter);
             }
         }
     }

@@ -2,17 +2,20 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <CounterGroup v-bind:counter-num="3" />
+    <CounterSum />
   </div>
 </template>
 
 <script>
 import CounterGroup from './components/CounterGroup.vue'
+import CounterSum from './components/CounterSum.vue'
 
 export default {
   name: 'app',
   components: {
-    CounterGroup
-  }
+    CounterGroup,
+    CounterSum,
+  },
 }
 </script>
 
