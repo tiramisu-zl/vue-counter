@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Counter/>
+    <CounterGroup v-bind:counter-num="3" />
   </div>
 </template>
 
 <script>
-import Counter from './components/Counter.vue'
+import CounterGroup from './components/CounterGroup.vue'
 
 export default {
   name: 'app',
   components: {
-    Counter
+    CounterGroup
   }
 }
 </script>
