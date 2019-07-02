@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Counter v-for="count in counterNum" :key="count"> {{count}}</Counter>
+        <Counter v-for="(item, i) in counterList" :key="i" :count="item.count" :index="i"></Counter>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
     export default {
         name: "CounterGroup",
         props: {
-            counterNum: Number,
+            counterList: Array,
         },
         components: {
             Counter,

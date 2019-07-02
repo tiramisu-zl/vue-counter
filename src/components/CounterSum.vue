@@ -5,17 +5,9 @@
 <script>
     export default {
         name: "CounterSum",
-        data: function () {
-            return {
-                total: 0,
-            }
-        },
-        mounted() {
-            this.$root.Bus.$on("counterChange", val => {
-                this.total = val;
-            })
+        props: {
+            total: Number,
         }
-
     }
 </script>
 

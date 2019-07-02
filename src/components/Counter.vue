@@ -3,26 +3,25 @@
         <button @click="handleIncrease"> + increase </button>
         <button @click="handleDecrease"> - decrease </button>
 
-        <p>the number is {{counter}}</p>
+        <p>the number is {{count}}</p>
     </div>
 </template>
 
 <script>
     export default {
         name: "Counter",
-        data() {
-            return {
-                counter: 0
-            }
+        props: {
+            count: Number,
+            index: Number,
         },
         methods: {
-            handleIncrease: function() {
-                this.counter++;
-                this.$root.Bus.$emit('counterChange',this.counter);
+            handleIncrease() {
+                // this.count++;
+                this.$root.Bus.$emit('increase', this.index);
             },
-            handleDecrease: function() {
-                this.counter--;
-                this.$root.Bus.$emit('counterChange',this.counter);
+            handleDecrease() {
+                // this.count--;
+                this.$root.Bus.$emit('decrease', this.index);
             }
         }
     }
