@@ -1,54 +1,27 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <CounterGroup :counter-list="counterList"/>
-    <CounterSum :total="total"/>
+<!--    <CounterGroup :counter-list="counterList"/>-->
+<!--    <CounterSum :total="total"/>-->
+    <Counter :count="count"></Counter>
   </div>
 </template>
 
 <script>
 import CounterGroup from './components/CounterGroup.vue'
 import CounterSum from './components/CounterSum.vue'
+import Counter from './components/Counter.vue'
 
 export default {
   name: 'app',
-  data(){
-    return {
-      counterList: [{
-        count: 0,
-      }, {
-        count: 0,
-      }],
-    }
-  },
   components: {
-    CounterGroup,
-    CounterSum,
+    Counter,
   },
   computed: {
-    total(){
-      return this.counterList.reduce((acc, item) => acc+item.count, 0);
+    count () {
+      return this.$store.state.count
     }
-  },
-  methods: {
-    handleIncrease(i) {
-      this.counterList[i]++;
-    }
-  },
-  mounted() {
-    const that = this;
-    this.$root.Bus.$on("increase", i => {
-      that.counterList[i].count++;
-    });
-    this.$root.Bus.$on("decrease", function (i) {
-      that.counterList[i].count--;
-    })
-  },
-
-  beforeDestroy() {
-    this.$root.Bus.$off('increase');
-    this.$root.Bus.$off('decrease')
-  },
+  }
 
 }
 </script>

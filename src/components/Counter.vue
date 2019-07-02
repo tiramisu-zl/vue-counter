@@ -12,16 +12,13 @@
         name: "Counter",
         props: {
             count: Number,
-            index: Number,
         },
         methods: {
             handleIncrease() {
-                // this.count++;
-                this.$root.Bus.$emit('increase', this.index);
+                this.$store.commit('increment')
             },
             handleDecrease() {
-                // this.count--;
-                this.$root.Bus.$emit('decrease', this.index);
+                this.$store.commit('decrement')
             }
         }
     }
